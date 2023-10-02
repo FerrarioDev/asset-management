@@ -7,7 +7,7 @@ def add_desktop(request):
         form = DesktopForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('user_list')
+            return redirect('desktop_list')
     else:
         form = DesktopForm()
     return render(request, 'add_desktop.html', {'form': form})
@@ -17,7 +17,7 @@ def add_laptop(request):
         form = LaptopForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('user_list')
+            return redirect('laptop_list')
     else:
         form = LaptopForm()
-    return render(request, 'add_Laptop.html', {'form': form})
+    return render(request, 'add_laptop.html', {'form': form})
