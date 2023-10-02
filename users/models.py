@@ -4,7 +4,7 @@ class User(models.Model):
     id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=255)
     role = models.CharField(max_length=255)
-    area = models.ForeignKey('Area', on_delete=models.CASCADE, related_name='users_area')  # Reference to Area model
+    area = models.ForeignKey('Area', on_delete=models.CASCADE, related_name='users_area', null=True, blank=True)  # Reference to Area model
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
