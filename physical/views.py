@@ -1,26 +1,16 @@
 from django.shortcuts import render, redirect
-from .forms import DesktopForm, LaptopForm, DiskForm
+from .forms import DiskForm, AssetForm
 # Create your views here.
 
-def add_desktop(request):
+def add_asset(request):
     if request.method == 'POST':
-        form = DesktopForm(request.POST)
+        form = AssetForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('desktop_list')
+            return redirect('asset_list')  # Change 'asset_list' to your asset list URL
     else:
-        form = DesktopForm()
-    return render(request, 'add_desktop.html', {'form': form})
-
-def add_laptop(request):
-    if request.method == 'POST':
-        form = LaptopForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('laptop_list')
-    else:
-        form = LaptopForm()
-    return render(request, 'add_laptop.html', {'form': form})
+        form = AssetForm()
+    return render(request, 'add_asset.html', {'form': form})
 
 def disk_disposal(request):
     if request.method == 'POST':
