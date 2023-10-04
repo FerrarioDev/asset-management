@@ -11,21 +11,16 @@
     {% csrf_token %}
     {{ form.asset_type }}
     <div id="desktop_fields">
-        {{ form.asset_type.label_tag }}
-        {{ form.asset_type }}
-        
+        <h2>Add Desktop</h2>
         {% for field in form %}
         <p>
             {{ field.label_tag }}
             {{ field }}
         </p>
         {% endfor %}
-        
     </div>
     <div id="laptop_fields">
-        {{ form.asset_type.label_tag }}
-        {{ form.asset_type }}
-        
+        <h2>Add Laptop</h2>
         {% for field in form %}
         <p>
             {{ field.label_tag }}
