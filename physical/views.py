@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .forms import DiskForm, DesktopForm, LaptopForm
 from .models import Desktop, Laptop
-# Create your views here.
+
 
 def add_asset(request):
     if request.method == 'POST':
@@ -10,6 +10,7 @@ def add_asset(request):
         desktop_form = DesktopForm(request.POST)
         laptop_form = LaptopForm(request.POST)
         
+        # Select the model of the asset
         if asset_type == 'desktop' and desktop_form.is_valid():
             desktop_form.save()
             return redirect('asset_list')
@@ -24,6 +25,7 @@ def add_asset(request):
     return render(request, 'assets/add_asset.html', {'desktop_form': desktop_form, 'laptop_form': laptop_form})
 
 
+# display the asset list in the assets home
 class AssetListView(ListView):
     template_name = 'assets/home.html'
     def get_queryset(self):
