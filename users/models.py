@@ -1,7 +1,7 @@
 from django.db import models
 
 class User(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.CharField(primary_key=True, max_length=9)
     username = models.CharField(max_length=255)
     role = models.CharField(max_length=255)
     area = models.ForeignKey('Area', on_delete=models.CASCADE, related_name='users_area', null=True, blank=True)  # Reference to Area model
