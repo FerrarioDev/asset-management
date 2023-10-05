@@ -6,8 +6,8 @@ from users.models import User, Area
 class Desktop(models.Model):
     id = models.CharField(primary_key=True, max_length=15)
     model = models.CharField(max_length=30)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    area = models.ForeignKey(Area, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, to_field='username', on_delete=models.CASCADE)
+    area = models.ForeignKey(Area, to_field='area_name', on_delete=models.CASCADE)
     asset_number = models.IntegerField()
     serial_number = models.CharField(max_length=255)
     disk_serialnumber = models.CharField(max_length=255)
@@ -19,8 +19,8 @@ class Desktop(models.Model):
 class Laptop(models.Model):
     id = models.CharField(primary_key=True, max_length=15)
     model = models.CharField(max_length=30)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    area = models.ForeignKey(Area, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, to_field='username',on_delete=models.CASCADE)
+    area = models.ForeignKey(Area, to_field='area_name', on_delete=models.CASCADE)
     asset_number = models.IntegerField()
     serial_number = models.CharField(max_length=255)
     disk_serialnumber = models.CharField(max_length=255)
