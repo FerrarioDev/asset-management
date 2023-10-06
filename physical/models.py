@@ -33,12 +33,10 @@ class Laptop(models.Model):
 class DisposedDevice(models.Model):
     id = models.CharField(primary_key=True, max_length=15)
     model = models.CharField(max_length=30)
-    username = models.CharField(max_length=255)
-    area = models.CharField(max_length=255)
     asset_number = models.IntegerField()
     serial_number = models.CharField(max_length=255)
     disk_serialnumber = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/',default="images/default-avatar.png")
     disposed_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -50,7 +48,7 @@ class Hard_Disk(models.Model):
     description = models.CharField(max_length=255)
     size_gb = models.CharField(max_length=255, unique=True)
     reason = models.CharField(max_length=255, default="Disuse")
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/', default="images/default-avatar.png")
     disposed_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

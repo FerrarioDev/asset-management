@@ -6,9 +6,12 @@
     <input type="submit" value="Filter">
 </form>
 
+{% if not request.GET.type %}
+    <p>No asset type selected.</p>
+{% elif object_list %}
+
 <!-- Display the list of assets -->
 <ul>
-    {% if object_list %}
     <table>
         <thead>
           <tr>
@@ -35,7 +38,8 @@
           {% endfor %}
         </tbody>
     </table>
-    {% else %}
-        <li>No assets found.</li>
-    {% endif %}
+{% else %}
+    <li>No assets found.</li>
+    
 </ul>
+{% endif %}
