@@ -1,29 +1,24 @@
 from django.db import models
-from users.models import User, Area
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Desktop(models.Model):
-    id = models.CharField(primary_key=True, max_length=15)
-    model = models.CharField(max_length=30)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    area = models.ForeignKey(Area, on_delete=models.CASCADE)
-    asset_number = models.IntegerField()
-    serial_number = models.CharField(max_length=255)
-    disk_serialnumber = models.CharField(max_length=255)
-    created_at = models.DateTimeField(auto_now_add=True)
-    
-    def __str__(self):
-        return self.id
+class DeviceType(models.TextChoices):
+    DESKTOP = 'desktop', 'Desktop'
+    LAPTOP = 'laptop', 'Laptop'
 
-class Laptop(models.Model):
+class Asset(models.Model):
     id = models.CharField(primary_key=True, max_length=15)
     model = models.CharField(max_length=30)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
-    area = models.ForeignKey(Area, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     asset_number = models.IntegerField()
     serial_number = models.CharField(max_length=255)
     disk_serialnumber = models.CharField(max_length=255)
+    device_type = models.CharField(
+        max_length=10,
+        choices=DeviceType.choices,
+        default=DeviceType.DESKTOP,
+    )
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
@@ -36,6 +31,11 @@ class DisposedDevice(models.Model):
     asset_number = models.IntegerField()
     serial_number = models.CharField(max_length=255)
     disk_serialnumber = models.CharField(max_length=255)
+    device_type = models.CharField(
+        max_length=10,
+        choices=DeviceType.choices,
+        default=DeviceType.DESKTOP,
+    )
     image = models.ImageField(upload_to='images/',default="images/default-avatar.png")
     disposed_at = models.DateTimeField(auto_now_add=True)
 

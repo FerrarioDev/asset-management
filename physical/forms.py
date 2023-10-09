@@ -1,14 +1,9 @@
 from django import forms
-from .models import Desktop, Laptop, Hard_Disk
+from .models import Asset, Hard_Disk
 
-class DesktopForm(forms.ModelForm):
+class AssetForm(forms.ModelForm):
     class Meta:
-        model = Desktop
-        fields = '__all__'
-
-class LaptopForm(forms.ModelForm):
-    class Meta:
-        model = Laptop
+        model = Asset
         fields = '__all__'
 
 class DiskForm(forms.ModelForm):
