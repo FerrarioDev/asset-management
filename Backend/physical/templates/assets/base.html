@@ -1,0 +1,36 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App Title</title>
+    <!-- Add your CSS and JavaScript links here -->
+    <!-- Example: <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/assets/">Assets</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}
+        <!-- The content of child templates will be inserted here -->
+        {% endblock %}
+    </main>
+    
+    <footer>
+        <!-- Add footer content here -->
+    </footer>
+
+    <!-- Add your JavaScript scripts here -->
+    <!-- Example: <script src="{% static 'js/script.js' %}"></script -->
+</body>
+</html>

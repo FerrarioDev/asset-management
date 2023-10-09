@@ -5,6 +5,8 @@ from .models import Asset
 
 
 def add_asset(request):
+    form = AssetForm() 
+    
     if request.method == 'POST':
         form = AssetForm(request.POST)
         if form.is_valid():
@@ -12,8 +14,6 @@ def add_asset(request):
             device_type = form.cleaned_data.get('device_type')
             form.save()
             return redirect('asset_list')
-    else:
-        form = AssetForm()
     
     return render(request, 'assets/add_asset.html', {'form': form})
 

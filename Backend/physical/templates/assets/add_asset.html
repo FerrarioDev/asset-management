@@ -2,42 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Asset</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Asset</title>
+    <!-- Add your CSS and JavaScript links here if needed -->
 </head>
 <body>
-<h1>Add Asset</h1>
-<form method="post">
-    {% csrf_token %}
-    <label for="asset_type">Select Asset Type:</label>
-    <select name="asset_type" id="asset_type">
-        <option value="desktop">Desktop</option>
-        <option value="laptop">Laptop</option>
-    </select>
-    
-    <div id="desktop_fields">
-        <h2>Add Desktop</h2>
-        {{ desktop_form.as_p }}
-    </div>
-    
-    <div id="laptop_fields">
-        <h2>Add Laptop</h2>
-        {{ laptop_form.as_p }}
-    </div>
-    
-    <button type="submit">Add Asset</button>
-</form>
+    <h2>Upload Asset</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{ form.non_field_errors }}
+        
+        <div>
+            <label for="id_id">Asset ID:</label>
+            {{ form.id }}
+        </div>
 
-<script>
-    $(document).ready(function () {
-        $('#desktop_fields, #laptop_fields').hide();
+        <div>
+            <label for="id_model">Model:</label>
+            {{ form.model }}
+        </div>
 
-        $('#asset_type').change(function () {
-            $('#desktop_fields, #laptop_fields').hide();
-            var selectedAsset = $(this).val();
-            $('#' + selectedAsset + '_fields').show();
-        });
-    });
-</script>
+        <div>
+            <label for="id_user">User:</label>
+            {{ form.user }}
+        </div>
+
+        <div>
+            <label for="id_asset_number">Asset Number:</label>
+            {{ form.asset_number }}
+        </div>
+
+        <div>
+            <label for="id_serial_number">Serial Number:</label>
+            {{ form.serial_number }}
+        </div>
+
+        <div>
+            <label for="id_disk_serialnumber">Disk Serial Number:</label>
+            {{ form.disk_serialnumber }}
+        </div>
+
+        <div>
+            <label for="id_device_type">Device Type:</label>
+            {{ form.device_type }}
+        </div>
+
+        <button type="submit">Upload Asset</button>
+    </form>
+
+    <!-- Add your JavaScript scripts here if needed -->
 </body>
 </html>
