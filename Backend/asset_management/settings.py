@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,9 +31,13 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 INSTALLED_APPS = [
     'dashboard',
     'physical',
+    'rest_framework',
+    'api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,10 +58,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'asset_management.urls'
 
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend', 'my-app', 'build')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [FRONTEND_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +74,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+STATICFILES_DIRS = [
+    FRONTEND_DIR,
 ]
 
 WSGI_APPLICATION = 'asset_management.wsgi.application'

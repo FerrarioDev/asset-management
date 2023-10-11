@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Asset</title>
-    <!-- Add your CSS and JavaScript links here if needed -->
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <h2>Upload Asset</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -50,7 +44,4 @@
 
         <button type="submit">Upload Asset</button>
     </form>
-
-    <!-- Add your JavaScript scripts here if needed -->
-</body>
-</html>
+{% endblock %}
