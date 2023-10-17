@@ -7,4 +7,5 @@ urlpatterns = [
     # upload asset
     path('upload/', views.add_asset, name='upload'),
     path('disposal/', views.disk_disposal, name='disposal'),
+    path('<str:asset_id>/', views.asset_detail, name='edit_asset'),
 ]

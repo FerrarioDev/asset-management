@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import  get_object_or_404, render, redirect
 from django.views.generic import ListView, DetailView
 from .forms import DiskForm, AssetForm
 from .models import Asset
@@ -16,6 +16,19 @@ def add_asset(request):
             return redirect('asset_list')
     
     return render(request, 'assets/add_asset.html', {'form': form})
+
+def asset_detail(request, asset_id):
+    asset = get_object_or_404(Asset, id=asset_id)
+    form = AssetForm(instance=asset)
+
+    if request.method == 'POST':
+        form = AssetForm(request.POST, instance=asset)
+        if form.is_valid():
+            form.save()
+            return redirect('asset_detail', asset_id=asset_id)
+
+    return render(request, 'assets/asset_detail.html', {'asset': asset, 'form': form})
+
 
 class AssetListView(ListView):
     model = Asset

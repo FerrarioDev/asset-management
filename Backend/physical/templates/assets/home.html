@@ -30,10 +30,10 @@
     <tbody>
         {% for asset in object_list %}
             <tr>
-                <td>{{ asset.id }}</td>
+                <td><a href="{% url 'edit_asset' asset.id %}">{{ asset.id }}</a></td>
                 <td>{{ asset.model }}</td>
                 <td>{{ asset.user }}</td>
-                <td>{{ asset.area }}</td>
+                <td>{{ asset.user.groups.first.name }}</td>
                 <td>{{ asset.asset_number }}</td>
                 <td>{{ asset.serial_number }}</td>
                 <td>{{ asset.location }}</td>

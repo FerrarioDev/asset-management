@@ -1,0 +1,41 @@
+<!-- asset_detail.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="mt-4">Asset Details</h2>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Asset ID: {{ asset.id }}</h5>
+            <p class="card-text">Model: {{ asset.model }}</p>
+            <p class="card-text">User: {{ asset.user }}</p>
+            <p class="card-text">Area: {{ asset.user.groups.first.name }}</p>
+            <p class="card-text">Asset Number: {{ asset.asset_number }}</p>
+            <p class="card-text">Serial Number: {{ asset.serial_number }}</p>
+            <p class="card-text">Drive Serial Number: {{ asset.disk_serialnumber }}</p>
+            <p class="card-text">Location: {{ asset.location }}</p>
+            <div id="asset-detail">
+                <a href="javascript:void(0);" id="edit-asset">Edit Asset</a>
+            </div>
+            <div id="asset-edit" style="display: none;">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <a href="javascript:void(0);" id="cancel-edit">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('edit-asset').addEventListener('click', function() {
+            document.getElementById('asset-detail').style.display = 'none';
+            document.getElementById('asset-edit').style.display = 'block';
+        });
+
+        document.getElementById('cancel-edit').addEventListener('click', function() {
+            document.getElementById('asset-edit').style.display = 'none';
+            document.getElementById('asset-detail').style.display = 'block';
+        });
+    </script>
+{% endblock %}
