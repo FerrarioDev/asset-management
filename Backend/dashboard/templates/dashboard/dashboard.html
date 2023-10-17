@@ -1,7 +1,43 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
-
-<h1>Dashboard Section</h1>
-
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar with buttons -->
+            <div class="col-md-3">
+                <div class="mb-3">
+                    <a href="{% url 'add_asset' %}" class="btn btn-primary btn-block">Add Asset</a>
+                </div>
+                <div class="mb-3">
+                    <a href="{% url 'asset_list' %}" class="btn btn-secondary btn-block">Asset List</a>
+                </div>
+            </div>
+            
+            <!-- Main content area -->
+            <div class="col-md-9">
+                <h2>Welcome to the Dashboard</h2>
+                <hr>
+                
+                <!-- Log section -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Logs
+                    </div>
+                    <div class="card-body">
+                        <!-- Log entries go here -->
+                    </div>
+                </div>
+                
+                <!-- Asset previews section -->
+                <div class="card">
+                    <div class="card-header">
+                        Asset Previews
+                    </div>
+                    <div class="card-body">
+                        <!-- Asset preview cards or images go here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
