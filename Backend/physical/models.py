@@ -14,6 +14,7 @@ class Asset(models.Model):
     asset_number = models.IntegerField()
     serial_number = models.CharField(max_length=255)
     disk_serialnumber = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
     device_type = models.CharField(
         max_length=10,
         choices=DeviceType.choices,
