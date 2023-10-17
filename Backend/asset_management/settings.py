@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -58,12 +59,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'asset_management.urls'
 
-FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend', 'my-app', 'build')
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend', 'my-app')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [FRONTEND_DIR],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

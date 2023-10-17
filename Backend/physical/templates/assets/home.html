@@ -2,11 +2,11 @@
 
 {% block content %}
     <form method="get" action="{% url 'asset_list' %}">
-    <select name="type">
+    <select class="btn btn-secondary dropdown-toggle" name="type">
         <option value="laptop">Laptops</option>
         <option value="desktop">Desktops</option>
     </select>
-    <input type="submit" value="Filter">
+    <input type="submit" value="Filter" class="btn btn-outline-success">
   </form>
 
   {% if not request.GET.type %}
@@ -14,16 +14,17 @@
   {% elif object_list %}
 
   <!-- Display the list of assets -->
-  <table>
+  <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Model</th>
-            <th>Username</th>
-            <th>Area</th>
-            <th>Asset Number</th>
-            <th>Serial Number</th>
-            <th>Disk Serial Number</th>
+            <th scope="col">ID</th>
+            <th scope="col">Model</th>
+            <th scope="col">Username</th>
+            <th scope="col">Area</th>
+            <th scope="col">Asset Number</th>
+            <th scope="col">Serial Number</th>
+            <th scope="col">Location</th>
+            <th scope="col">Disk Serial Number</th>
         </tr>
     </thead>
     <tbody>
@@ -31,10 +32,11 @@
             <tr>
                 <td>{{ asset.id }}</td>
                 <td>{{ asset.model }}</td>
-                <td>{{ asset.username }}</td>
+                <td>{{ asset.user }}</td>
                 <td>{{ asset.area }}</td>
                 <td>{{ asset.asset_number }}</td>
                 <td>{{ asset.serial_number }}</td>
+                <td>{{ asset.location }}</td>
                 <td>{{ asset.disk_serialnumber }}</td>
             </tr>
         {% endfor %}
@@ -43,5 +45,5 @@
   {% else %}
     <p>No assets found.</p>
   {% endif %}
-
+  <a href="upload/" class="btn btn-primary" role="button">Add Asset</a>
 {% endblock %}
