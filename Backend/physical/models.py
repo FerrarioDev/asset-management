@@ -14,6 +14,14 @@ class Offices(models.TextChoices):
     PLANTA = 'planta', 'Planta'
     ACEPTACION = 'aceptacion', 'Aceptacion'
 
+class Status(models.TextChoices):
+    AVAIABLE = 'avaiable', 'Avaiable'
+    HOMEOFFICE = 'home office', 'Home office'
+    ASIGNED = 'asigned', 'Asigned'
+    TRAVEL = 'travel', 'Travel'
+    DISPOSED = 'disposed', 'Disposed'
+    
+
 
 class DeviceModel(models.Model):
     model = models.CharField(max_length=255)
@@ -30,10 +38,15 @@ class Asset(models.Model):
     asset_number = models.IntegerField()
     serial_number = models.CharField(max_length=255)
     disk_serialnumber = models.CharField(max_length=255)
-    location = models.CharField(
+    status = models.CharField(
         max_length=50,
         choices=Offices.choices,
         default=Offices.OFFICE
+    )
+    location = models.CharField(
+        max_length=50,
+        choices=Status.choices,
+        default=Status.AVAIABLE
     )
     device_type = models.CharField(
         max_length=10,
