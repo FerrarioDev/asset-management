@@ -1,4 +1,3 @@
-<!-- base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,7 @@
         <!-- Navbar with Bootstrap styles -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">
-                <img src="Backend/physical/images/denso.png" width="30" height="30" alt="">
+                <img src="/physical/images/denso.png" width="30" height="30" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,24 +21,26 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/">Dashboard <span class="sr-only"></span></a>
+                        <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/assets/">Assets</a>
+                        <a class="nav-link" href="{% url 'asset_list' %}">Assets</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Audits</a>
+                        <a class="nav-link" href="#">Audits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Vendors</a>
+                        <a class="nav-link" href="#">Vendors</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Tasks</a>
+                        <a class="nav-link" href="#">Tasks</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <div class="input-group"> <!-- Add a container for the input and button -->
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </div>
                 </form>
             </div>
         </nav>
