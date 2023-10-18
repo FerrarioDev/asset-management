@@ -5,6 +5,16 @@ class DeviceType(models.TextChoices):
     DESKTOP = 'desktop', 'Desktop'
     LAPTOP = 'laptop', 'Laptop'
 
+class Offices(models.TextChoices):
+    CONTROLDEGESTION = 'control de gestion','Control de Gestion'
+    PRESIDENCIA = 'presidencia', 'Presidencia'
+    OFFICE = 'office','Office'
+    PLANTABAJA = 'planta baja', 'Planta Baja'
+    PANOL = 'panol', 'Panol'
+    PLANTA = 'planta', 'Planta'
+    ACEPTACION = 'aceptacion', 'Aceptacion'
+
+
 class DeviceModel(models.Model):
     model = models.CharField(max_length=255)
     description = models.TextField(max_length=255)
@@ -20,7 +30,11 @@ class Asset(models.Model):
     asset_number = models.IntegerField()
     serial_number = models.CharField(max_length=255)
     disk_serialnumber = models.CharField(max_length=255)
-    location = models.CharField(max_length=255)
+    location = models.CharField(
+        max_length=50,
+        choices=Offices.choices,
+        default=Offices.OFFICE
+    )
     device_type = models.CharField(
         max_length=10,
         choices=DeviceType.choices,
