@@ -20,7 +20,6 @@ class Status(models.TextChoices):
     ASIGNED = 'asigned', 'Asigned'
     TRAVEL = 'travel', 'Travel'
     DISPOSED = 'disposed', 'Disposed'
-    
 
 
 class DeviceModel(models.Model):
@@ -40,13 +39,13 @@ class Asset(models.Model):
     disk_serialnumber = models.CharField(max_length=255)
     status = models.CharField(
         max_length=50,
-        choices=Offices.choices,
-        default=Offices.OFFICE
+        choices=Status.choices,
+        default=Status.AVAIABLE
     )
     location = models.CharField(
         max_length=50,
-        choices=Status.choices,
-        default=Status.AVAIABLE
+        choices=Offices.choices,
+        default=Offices.OFFICE
     )
     device_type = models.CharField(
         max_length=10,
