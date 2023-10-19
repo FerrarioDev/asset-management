@@ -1,0 +1,25 @@
+
+/* (home) Actions Box Assets*/
+.actions-box {
+    background-color: rgb(61, 61, 61);
+    padding: 10px;
+    margin-top: 50px;
+    border-radius: 5px;
+}
+
+.actions-title {
+    align-self: center;
+    color: #f9f9f9;
+    width: 100%;
+}
+
+.action-button {
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/*(home) Table*/
+.table{
+    margin-top: 10px;
+}
