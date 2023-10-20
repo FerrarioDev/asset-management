@@ -5,6 +5,7 @@
     padding: 10px;
     margin-top: 50px;
     border-radius: 5px;
+    width: 30%;
 }
 
 .actions-title {
@@ -20,6 +21,20 @@
 }
 
 /*(home) Table*/
-.table{
+.custom-table{
     margin-top: 10px;
+    width: 80%;
+}
+
+/*(add_asset) Form*/
+.custom-form-container{
+    background-color: darkslategrey;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #fff; 
+}
+
+.select-asset-upload{
+    text-align: left;
 }

@@ -36,8 +36,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 INSTALLED_APPS = [
     'dashboard',
     'physical',
-    'rest_framework',
     'api',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
