@@ -10,3 +10,6 @@ class DiskForm(forms.ModelForm):
     class Meta:
         model = Hard_Disk
         fields = '__all__'
+
+class CSVUploadForm(forms.Form):
+    csv_file = forms.FileField()
