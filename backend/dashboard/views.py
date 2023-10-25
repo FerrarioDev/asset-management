@@ -21,4 +21,4 @@ def signup(request):
             return redirect('dashboard')
     else:
         form = CustomUserCreationForm()
-    return render(request, 'dashboard/signup.html', {'form':form})
+    return render(request, 'registration/signup.html', {'form':form})
